@@ -1,0 +1,60 @@
+\input{preambleA4}
+
+%% Defines thesistitle, authorname, student number, supervisor, and all other personal stuff
+\newcommand{\thesistitle}{Title}
+\renewcommand{\author}{Author name}
+\newcommand{\studentNo}{Student ID}
+\newcommand{\supervisor}{Supervisor name}
+\newcommand{\email}{\url{email@email.com}}
+\newcommand{\afldate}{1st of January}
+\newcommand{\aflyear}{1970}
+% Replace with a nice picture related to the thesis
+\newcommand{\coverPicPath}{figures/coverPic.pdf}
+\newcommand{\coverPicDescription}{Description of cover picture}
+\newcommand{\personalquote}{\epigraph{[Insert quote]}}   
+
+\begin{document}
+	%% Coverpage, titlepage, colophon
+	\frontmatter
+		\input{frontmatter/coverPage}
+		\input{frontmatter/titlePage} 
+		\restoregeometry
+		\input{frontmatter/colophon} 	
+	
+	%% Outline, table of contents, acknowledgements and preface
+		\pagestyle{fancy}
+		\chapter{Outline}
+		\input{frontmatter/outline}
+		\newpage
+		\thispagestyle{empty} % This page is intentionally left blank
+		\phantom{blabla}
+		\clearpage
+		\tableofcontents 
+		\clearpage
+		\input{frontmatter/acknowledgements}
+	
+	%% The actual thesis
+	\mainmatter
+		\include{mainmatter/introduction}
+		%...
+		\include{mainmatter/conclusion}
+	
+	%% Appendix and other shit
+	\appendix
+		\include{appendix/appendix1}
+		
+	\backmatter
+	%% Bibliography
+	\printbibliography
+	\renewcommand*{\bibfont}{\raggedright}
+	
+	% Commands to add lists and index
+%	\clearpage
+%	\listoffigures
+%	\clearpage
+%	\listoftables
+	%\clearpage
+%	\printindex
+	
+
+\end{document}
